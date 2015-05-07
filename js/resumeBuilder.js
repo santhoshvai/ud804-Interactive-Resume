@@ -102,7 +102,10 @@ if (bio.skills.length > 0) {
 		skillsElem.innerHTML += (HTMLskills.replace("%data%", bio.skills[i]));
 	}
 }
-
+for(i in formattedContactInfo) {
+	$("#topContacts").append(formattedContactInfo[i]);
+	$("#footerContacts").append(formattedContactInfo[i]);
+}
 function displayWork() {
 		for(var i in work.jobs) {
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
