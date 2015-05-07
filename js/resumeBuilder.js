@@ -102,8 +102,7 @@ if (bio.skills.length > 0) {
 	}
 }
 
-if(work.jobs.length > 0) {
-		$("#workExperience").append(HTMLworkStart);
+function displayWork() {
 		for(i in work.jobs) {
 			var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
 			var formattedWorkTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
@@ -116,8 +115,21 @@ if(work.jobs.length > 0) {
 			$(".work-entry:last").append(formattedDatesWorked);
 			$(".work-entry:last").append(formattedWorkDescription);
 		}
+}
 
-	}
-//$("#header").append(formattedName + formattedRole);
-//document.getElementById("header").innerHTML += formattedName + formattedRole;
+if(work.jobs.length > 0) {
+		$("#workExperience").append(HTMLworkStart);
+		displayWork();
+}
 
+function inName(name) {
+	// example inName("santhosh vaiyapuri") == "Santhosh VAIYAPURI"
+	name = bio.name;
+	var arr = name.split(" ");
+	arr[0] = arr[0].slice(0,1).toUpperCase() + arr[0].slice(1);
+	return arr[0] + " " + arr[1].toUpperCase();
+}
+
+//var maindiv =  document.getElementById("main");
+//maindiv.innerHTML += internationalizeButton;
+$('#main').append(internationalizeButton);

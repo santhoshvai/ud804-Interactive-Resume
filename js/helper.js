@@ -85,7 +85,8 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  // loc is a jQuery event object that contains information about the click event.
+  logClicks(loc.pageX, loc.pageY);
 });
 
 
